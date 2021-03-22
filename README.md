@@ -12,13 +12,19 @@ Create virtual environment
     pip install flask
     pip install flask_restful
     pip install flask_cors
+    pip install python-dotenv
 
-Run flask backend
+    pip freeze >> requirements.txt
+
+(not neccessary if already in .flaskenv file)
 
     $env:FLASK_APP = "app.py"
-    python -m flask run
 
 Build frontend in ./frontend/
 
     npm install axios
     npm run build
+
+Run flask backend
+
+    python -m flask run
