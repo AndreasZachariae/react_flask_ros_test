@@ -14,6 +14,16 @@
 ### Run React test server
     npm start
 
+#### Errors
+https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached
+
+    # insert the new value into the system config
+    echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+    # check that the new value was applied
+    cat /proc/sys/fs/inotify/max_user_watches
+
+
 ### Create virtual environment
 
     (Windows) python -m venv venv
@@ -70,3 +80,4 @@ in package.json change dependecy to
 
     source /opt/ros/$DISTRO/setup.sh  # or a source installation
     node bin/rosbridge.js
+
