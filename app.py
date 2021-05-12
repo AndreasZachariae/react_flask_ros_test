@@ -1,6 +1,7 @@
 from flask import Flask, send_from_directory
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS  # comment this on deployment
+from flask import render_template
 from api.HelloApiHandler import HelloApiHandler
 
 import time
@@ -21,3 +22,8 @@ api.add_resource(HelloApiHandler, '/flask/hello')
 @app.route('/time')
 def get_current_time():
     return {'time': time.time()}
+
+
+@app.route('/publish_topic')
+def publish():
+    return render_template('publisher.html')
